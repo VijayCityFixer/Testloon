@@ -1,0 +1,2 @@
+export { default as Logo } from './Logo/Logo.png';
+export { default as Hotal } from './Hotal/Hotal.png';
