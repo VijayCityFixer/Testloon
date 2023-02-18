@@ -7,15 +7,14 @@ import {
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 import {DynamicAppStyles} from '../../theme';
-import {InputText, Button} from '../../components';
-import SearchInput, {createFilter} from 'react-native-search-filter';
+import Entypo from 'react-native-vector-icons/Entypo';
 import styles from './style';
-const KEYS_TO_FILTERS = ['title'];
+import {Dropdown} from 'react-native-element-dropdown';
 
 /******************** constants ********************/
 const COLOR_SCHEME = Appearance.getColorScheme();
 
-class Search extends Component {
+class ExploreAll extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -69,17 +68,14 @@ class Search extends Component {
           discount: '50% off',
         },
       ],
-      searchText: '',
-      searchData: [],
+      Type: [
+        {label: 'Relaxion', value: '1'},
+        {label: 'Birthday', value: '2'},
+      ],
       currentCity: '1',
     };
   }
-  searchData = txt => {
-    var filteredData = this.state.Data.filter(
-      createFilter(txt, KEYS_TO_FILTERS),
-    );
-    this.setState({searchData: filteredData});
-  };
+
   render() {
     return (
       <View
@@ -87,41 +83,52 @@ class Search extends Component {
           flex: 1,
           backgroundColor: DynamicAppStyles.colorSet[COLOR_SCHEME].KellyGreen,
         }}>
-        <Image style={styles.headerImage} source={Logo} />
-        <View style={styles.mainView}>
-          <InputText
-            placeholder={'Search farmhouse,location'}
-            searchlable={true}
-            onChangeText={txt => this.searchData(txt)}
-            inputstyle={{
-              fontSize: DynamicAppStyles.fontSize.normal,
-              borderWidth: 0,
-              paddingLeft: wp(4),
-              height: hp(5.5),
+        <Image style={styles.logoImage} source={Logo} />
+        <View style={styles.container}>
+          <Dropdown
+            style={[styles.dropdown]}
+            data={this.state.Type}
+            selectedTextStyle={styles.selectedTextStyle}
+            maxHeight={300}
+            labelField="label"
+            valueField="value"
+            value={'1'}
+            placeholder={'Select City'}
+            onChange={item => {
+              this.setState({currentCity: item.value});
             }}
-            placeholderTextColor={
-              DynamicAppStyles.colorSet[COLOR_SCHEME].Silver
-            }
-            inputtextstyle={{
-              borderRadius: hp(2),
-              marginHorizontal: wp(4),
-              marginVertical: hp(2),
-              borderWidth: 1,
-              borderColor: DynamicAppStyles.colorSet[COLOR_SCHEME].Silver,
+            itemTextStyle={{
+              color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
             }}
+            renderLeftIcon={() => (
+              <Entypo
+                style={styles.icon}
+                color={'black'}
+                name="location-pin"
+                size={20}
+              />
+            )}
           />
           <ScrollView>
-            {this.state.searchData?.length > 0 &&
-              this.state.searchData.map(item => {
+            {this.state.Data?.length > 0 &&
+              this.state.Data.map(item => {
                 return (
                   <HotalDetails
-                    style={{width: wp(90), marginBottom: hp(2)}}
+                    style={{
+                      width: wp(90),
+                      marginHorizontal: wp(5),
+                      elevation: 10,
+                      marginBottom: hp(2),
+                    }}
                     image={Hotal}
                     title={'La cassa'}
                     subTitle={'Anand,Gujarat'}
                     price={799}
                     mrp={1499}
                     discount={'50% off'}
+                    onPress={() =>
+                      this.props.navigation.navigate('Details', {data: item})
+                    }
                   />
                 );
               })}
@@ -132,4 +139,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default ExploreAll;

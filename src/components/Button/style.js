@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   TxtTitle: {
     color: DynamicAppStyles.colorSet[COLOR_SCHEME].White,
     fontSize: DynamicAppStyles.fontSize.middium,
-    fontFamily: DynamicAppStyles.fontFamily.RubikExtraBold,
+    fontFamily: DynamicAppStyles.fontFamily.RubikRegular,
   }
 });
 export default styles;

@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     flex: 1,
     borderTopLeftRadius: hp(5),
     borderTopRightRadius: hp(5),
+    paddingTop: hp(2),
   },
   titleText: {
     color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
@@ -31,19 +32,17 @@ const styles = StyleSheet.create({
     width: wp(80),
     textAlign: 'center',
   },
-  normalText1: {
-    color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
+  editText: {
+    color: DynamicAppStyles.colorSet[COLOR_SCHEME].Red,
     fontSize: DynamicAppStyles.fontSize.xsmall,
     fontFamily: DynamicAppStyles.fontFamily.RubikRegular,
-    marginBottom: hp(0.7),
-    width: wp(30),
   },
   normalText: {
     color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
     fontSize: DynamicAppStyles.fontSize.xsmall,
     fontFamily: DynamicAppStyles.fontFamily.RubikRegular,
-    marginBottom: hp(0.7),
-    width: wp(55),
+    width: wp(65),
+    paddingHorizontal: wp(3),
   },
   detailsView: {
     borderWidth: 1,
@@ -55,21 +54,42 @@ const styles = StyleSheet.create({
   headerView: {
     flexDirection: 'row',
     width: wp(100),
-    height: hp(9),
     alignItems: 'center',
+    justifyContent: 'center',
   },
   headerText: {
     color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
     fontSize: DynamicAppStyles.fontSize.xmiddium,
     fontFamily: DynamicAppStyles.fontFamily.RubikRegular,
-    width: wp(50),
     textAlign: 'center',
     paddingVertical: hp(1),
   },
   linearStyle: {
-    height: hp(1.5),
+    height: hp(1.3),
     width: wp(100),
-    marginBottom: hp(2),
+  },
+  btnView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: wp(95),
+    paddingHorizontal: wp(5),
+    alignItems: 'center',
+    paddingVertical: hp(1),
+  },
+  editBtn: {
+    position: 'absolute',
+    bottom: 5,
+    right: 0,
+    borderRadius: hp(2),
+    backgroundColor: DynamicAppStyles.colorSet[COLOR_SCHEME].KellyGreen,
+    padding: 3,
+  },
+  editBtnView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    marginVertical: hp(4),
   },
 });
 export default styles;

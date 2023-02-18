@@ -25,17 +25,18 @@ const styles = StyleSheet.create({
     marginLeft: wp(3),
     marginVertical: hp(1),
   },
-  headerImage: {
-    height: hp(5),
-    width: hp(5),
-    alignSelf: 'center',
-    marginVertical: hp(2),
-  },
-  mainView: {
+  container: {
     backgroundColor: DynamicAppStyles.colorSet[COLOR_SCHEME].White,
     flex: 1,
     borderTopLeftRadius: hp(5),
     borderTopRightRadius: hp(5),
+    paddingTop: hp(5),
+  },
+  logoImage: {
+    height: hp(5),
+    width: hp(5),
+    alignSelf: 'center',
+    marginVertical: hp(2),
   },
 });
 export default styles;

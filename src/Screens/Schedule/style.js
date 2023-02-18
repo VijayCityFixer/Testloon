@@ -8,6 +8,9 @@ import {
 const COLOR_SCHEME = Appearance.getColorScheme();
 
 const styles = StyleSheet.create({
+  backicon: {
+    marginLeft: wp(6),
+  },
   selectedTextStyle: {
     color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
     fontSize: DynamicAppStyles.fontSize.normal,
@@ -17,25 +20,24 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
   dropdown: {
-    borderWidth: 1,
-    width: wp(40),
+    borderWidth: 0,
     height: hp(4),
     borderRadius: hp(1),
     paddingHorizontal: wp(3),
     marginLeft: wp(3),
     marginVertical: hp(1),
   },
-  headerImage: {
-    height: hp(5),
-    width: hp(5),
-    alignSelf: 'center',
+  bookBtn: {
+    paddingVertical: hp(2),
+    paddingHorizontal: wp(5),
+    backgroundColor: DynamicAppStyles.colorSet[COLOR_SCHEME].KellyGreen,
+    borderRadius: hp(1),
     marginVertical: hp(2),
+    marginHorizontal: wp(4),
   },
-  mainView: {
-    backgroundColor: DynamicAppStyles.colorSet[COLOR_SCHEME].White,
-    flex: 1,
-    borderTopLeftRadius: hp(5),
-    borderTopRightRadius: hp(5),
+  btnText: {
+    color: DynamicAppStyles.colorSet[COLOR_SCHEME].White,
+    fontSize: DynamicAppStyles.fontSize.normal,
   },
 });
 export default styles;

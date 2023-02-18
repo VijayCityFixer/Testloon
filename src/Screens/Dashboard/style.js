@@ -1,9 +1,8 @@
-import { Platform, StyleSheet } from "react-native";
-import { DynamicAppStyles } from '../../theme';
-import { Appearance } from "react-native-appearance";
+import {Platform, StyleSheet} from 'react-native';
+import {DynamicAppStyles} from '../../theme';
+import {Appearance} from 'react-native-appearance';
 
 const COLOR_SCHEME = Appearance.getColorScheme();
 
-const styles = StyleSheet.create({
-});
+const styles = StyleSheet.create({});
 export default styles;
