@@ -115,15 +115,7 @@ class Registration extends Component {
             isError={this.state.isConfirmPwdError}
           />
 
-          <Button
-            style={{
-              width: wp(45),
-              marginBottom: hp(4),
-              alignSelf: 'center',
-              marginVertical: hp(4),
-            }}
-            title={'Register'}
-          />
+          <Button style={styles.btnStyle} title={'Register'} />
         </View>
       </View>
     );

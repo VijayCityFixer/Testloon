@@ -91,6 +91,16 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginVertical: hp(4),
   },
-  textInput: {marginBottom: hp(3), marginLeft: wp(12), marginRight: wp(6)},
+  textInput: {
+    marginBottom: hp(3),
+    marginLeft: wp(12),
+    marginRight: wp(6),
+  },
+  btnStyle: {
+    width: wp(45),
+    marginBottom: hp(4),
+    alignSelf: 'center',
+    marginVertical: hp(4),
+  },
 });
 export default styles;

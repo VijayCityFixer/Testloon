@@ -26,11 +26,11 @@ class JoinUs extends Component {
     super(props);
     this.state = {
       fullName: '',
-      email: '',
+      number: '',
       password: '',
       confirmPassword: '',
       isNameError: '',
-      isEmailError: '',
+      isPhoneError: '',
       isPasswordError: '',
       isConfirmPwdValid: '',
     };
@@ -70,8 +70,8 @@ class JoinUs extends Component {
                 DynamicAppStyles.colorSet[COLOR_SCHEME].Silver
               }
               inputtextstyle={styles.textInput}
-              onChangeText={txt => this.setState({email: txt})}
-              isError={this.state.isEmailError}
+              onChangeText={txt => this.setState({number: txt})}
+              isError={this.state.isPhoneError}
             />
             <Dropdown
               style={[styles.dropdown]}
@@ -132,36 +132,13 @@ class JoinUs extends Component {
               onChangeText={txt => this.setState({confirmPassword: txt})}
               isError={this.state.isConfirmPwdError}
             />
-            <Text style={{marginLeft: wp(6)}}>Add Image</Text>
+            <Text style={styles.textInput}>Add Image</Text>
             <View style={{alignItems: 'center'}}>
-              <TouchableOpacity
-                style={{
-                  marginVertical: hp(2),
-                  height: hp(6),
-                  width: hp(6),
-                  backgroundColor:
-                    DynamicAppStyles.colorSet[COLOR_SCHEME].Silver,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  borderRadius: 5,
-                }}>
-                <Entypo
-                  style={styles.icon}
-                  color={'black'}
-                  name="plus"
-                  size={20}
-                />
+              <TouchableOpacity style={styles.plusBtn}>
+                <Entypo color={'black'} name="plus" size={20} />
               </TouchableOpacity>
             </View>
-            <Button
-              style={{
-                width: wp(45),
-                marginBottom: hp(4),
-                alignSelf: 'center',
-                marginVertical: hp(4),
-              }}
-              title={'Submit'}
-            />
+            <Button style={styles.btnStyle} title={'Submit'} />
           </ScrollView>
         </View>
       </View>

@@ -37,8 +37,7 @@ class Login extends Component {
             }
             inputtextstyle={{
               marginBottom: hp(4),
-              marginLeft: wp(12),
-              marginRight: wp(6),
+              width: wp(80),
             }}
           />
           <InputText
@@ -49,11 +48,11 @@ class Login extends Component {
             }
             inputtextstyle={{
               marginBottom: hp(10),
-              marginLeft: wp(12),
-              marginRight: wp(6),
+              width: wp(80),
             }}
           />
           <Button
+            onPress={() => this.props.navigation.push('BottomTab')}
             style={{width: wp(45), marginBottom: hp(4)}}
             title={'Login'}
           />

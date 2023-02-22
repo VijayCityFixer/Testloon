@@ -68,7 +68,8 @@ class Profile extends Component {
             colors={['#bcbcbc', '#000']}
             style={[styles.linearStyle]}
           />
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('JoinUs')}>
             <View style={styles.btnView}>
               <Text style={styles.normalText}>Join us</Text>
               <FontAwesome5
@@ -85,7 +86,8 @@ class Profile extends Component {
             colors={['#bcbcbc', '#000']}
             style={[styles.linearStyle, {height: hp(0.5)}]}
           />
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Login')}>
             <View style={styles.btnView}>
               <Text style={styles.editText}>Logout</Text>
               <FontAwesome5

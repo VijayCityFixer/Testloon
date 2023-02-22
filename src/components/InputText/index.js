@@ -1,5 +1,5 @@
 import React, {Component, useEffect, useRef} from 'react';
-import {View, StyleSheet, TextInput, Appearance} from 'react-native';
+import {View, StyleSheet, TextInput, Appearance, Text} from 'react-native';
 import {DynamicAppStyles} from '../../theme';
 import {
   heightPercentageToDP as hp,
@@ -30,6 +30,7 @@ export const InputText = ({
   isPhone,
   multiline,
   numberOfLines,
+  errorText,
 }) => {
   const ref = useRef(null);
   const [isFocused, setIsFocused] = React.useState(false);
@@ -58,27 +59,32 @@ export const InputText = ({
           style={[styles.phoneNumberView]}
         />
       )}
-      <TextInput
-        ref={_ref => {
-          ref.current = _ref;
-        }}
-        placeholder={placeholder}
-        keyboardType={keyboardType}
-        onChangeText={onChangeText}
-        placeholderTextColor={placeholderTextColor}
-        selectionColor={selectionColor}
-        autoCapitalize="none"
-        onSubmit={onSubmit}
-        value={value}
-        editable={editable}
-        secureTextEntry={secureTextEntry}
-        maxLength={maxlength}
-        autoFocus={isFocus}
-        style={[styles.inputstyle, inputstyle]}
-        onSubmitEditing={onSubmitEditing}
-        multiline={multiline}
-        numberOfLines={numberOfLines}
-      />
+      <View style={{flex: 1}}>
+        <TextInput
+          ref={_ref => {
+            ref.current = _ref;
+          }}
+          placeholder={placeholder}
+          keyboardType={keyboardType}
+          onChangeText={onChangeText}
+          placeholderTextColor={placeholderTextColor}
+          selectionColor={selectionColor}
+          autoCapitalize="none"
+          onSubmit={onSubmit}
+          value={value}
+          editable={editable}
+          secureTextEntry={secureTextEntry}
+          maxLength={maxlength}
+          autoFocus={isFocus}
+          style={[styles.inputstyle, inputstyle]}
+          onSubmitEditing={onSubmitEditing}
+          multiline={multiline}
+          numberOfLines={numberOfLines}
+        />
+        {errorText?.length > 0 && (
+          <Text style={styles.errorText}>{errorText}</Text>
+        )}
+      </View>
     </View>
   );
 };
@@ -89,7 +95,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     height: hp(6.3),
-    flex: 1,
     paddingLeft: wp(10),
     borderWidth: 1,
     color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
@@ -109,5 +114,10 @@ const styles = StyleSheet.create({
     width: wp(13),
     textAlign: 'center',
     marginRight: wp(5),
+  },
+  errorText: {
+    color: DynamicAppStyles.colorSet[COLOR_SCHEME].Red,
+    fontSize: DynamicAppStyles.fontSize.xsmall,
+    fontFamily: DynamicAppStyles.fontFamily.RubikRegular,
   },
 });

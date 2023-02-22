@@ -91,5 +91,19 @@ const styles = StyleSheet.create({
   icon: {
     marginRight: 5,
   },
+  btnStyle: {
+    width: wp(45),
+    alignSelf: 'center',
+    marginVertical: hp(4),
+  },
+  plusBtn: {
+    marginVertical: hp(2),
+    height: hp(6),
+    width: hp(6),
+    backgroundColor: DynamicAppStyles.colorSet[COLOR_SCHEME].Silver,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 5,
+  },
 });
 export default styles;

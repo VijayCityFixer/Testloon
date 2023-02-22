@@ -66,7 +66,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={'JoinUs'}>
+      <Stack.Navigator initialRouteName={'Login'}>
         {StackScreens.map(item => (
           <Stack.Screen
             name={item.name}
