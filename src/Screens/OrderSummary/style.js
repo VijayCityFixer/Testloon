@@ -36,9 +36,10 @@ const styles = StyleSheet.create({
   },
   titleText: {
     color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
-    fontSize: DynamicAppStyles.fontSize.small,
+    fontSize: DynamicAppStyles.fontSize.xnormal,
     fontFamily: DynamicAppStyles.fontFamily.RubikRegular,
     marginVertical: hp(2),
+    alignSelf: 'center',
   },
   detailsView: {
     borderWidth: 1,

@@ -22,14 +22,14 @@ export const InputText = ({
   value,
   editable,
   secureTextEntry,
-  maxlength,
+  maxlength = 50,
   searchlable,
   isFocus,
   onSubmitEditing,
   iconStyles,
   isPhone,
-  multiline,
-  numberOfLines,
+  multiline = false,
+  numberOfLines = 1,
   errorText,
 }) => {
   const ref = useRef(null);
@@ -50,7 +50,6 @@ export const InputText = ({
           ref={_ref => {
             ref.current = _ref;
           }}
-          onChangeText={onChangeText}
           placeholderTextColor={placeholderTextColor}
           selectionColor={selectionColor}
           editable={false}

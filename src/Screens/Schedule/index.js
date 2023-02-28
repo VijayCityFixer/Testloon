@@ -24,6 +24,7 @@ import RadioForm, {
 } from 'react-native-simple-radio-button';
 import DatePicker from 'react-native-date-picker';
 import moment from 'moment/moment';
+import {Headers} from '../../components';
 
 /******************** constants ********************/
 const COLOR_SCHEME = Appearance.getColorScheme();
@@ -65,6 +66,7 @@ class Schedule extends Component {
           }}
           source={Logo}
         />
+
         <View
           style={{
             backgroundColor: DynamicAppStyles.colorSet[COLOR_SCHEME].White,
@@ -73,7 +75,13 @@ class Schedule extends Component {
             borderTopRightRadius: hp(5),
             paddingTop: hp(2),
           }}>
-          <View style={{flexDirection: 'row'}}>
+          <Headers
+            onPress={() => this.props.navigation.goBack()}
+            isBack={true}
+            title={'Schedule'}
+          />
+
+          {/* <View style={{flexDirection: 'row'}}>
             <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
               <Ionicons
                 style={styles.backicon}
@@ -93,7 +101,7 @@ class Schedule extends Component {
               }}>
               Schedule
             </Text>
-          </View>
+          </View> */}
           <ScrollView contentContainerStyle={{paddingHorizontal: wp(4)}}>
             <Text
               style={{
@@ -292,7 +300,9 @@ class Schedule extends Component {
               </RadioForm>
             </View>
           </ScrollView>
-          <TouchableOpacity style={styles.bookBtn}>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('OrderSummary')}
+            style={styles.bookBtn}>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               <Text style={styles.btnText}>$5000</Text>

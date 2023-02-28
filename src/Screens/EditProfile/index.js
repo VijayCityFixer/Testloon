@@ -28,8 +28,8 @@ class EditProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      starCount: 3.5,
-      listData: [],
+      firstName: '',
+      lastName: '',
     };
   }
 
@@ -70,6 +70,7 @@ class EditProfile extends Component {
               marginLeft: wp(12),
               marginRight: wp(6),
             }}
+            onChangeText={t => this.setState({firstName: t})}
           />
           <InputText
             placeholder={'Enter your last name'}
@@ -82,6 +83,7 @@ class EditProfile extends Component {
               marginLeft: wp(12),
               marginRight: wp(6),
             }}
+            onChangeText={t => this.setState({lastName: t})}
           />
           <LinearGradient
             start={{x: 0, y: 0}}
@@ -89,7 +91,8 @@ class EditProfile extends Component {
             colors={['#bcbcbc', '#000']}
             style={[styles.linearStyle]}
           />
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('ChangeNumber')}>
             <View style={styles.btnView}>
               <Text style={styles.normalText}>Change number</Text>
               <FontAwesome5

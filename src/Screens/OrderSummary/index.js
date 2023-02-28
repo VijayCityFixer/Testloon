@@ -7,21 +7,14 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import {Logo, Hotal} from '../../assets';
+import {Logo} from '../../assets';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 import {DynamicAppStyles} from '../../theme';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Entypo from 'react-native-vector-icons/Entypo';
 import styles from './style';
-import {Dropdown} from 'react-native-element-dropdown';
-import RadioForm, {
-  RadioButton,
-  RadioButtonInput,
-  RadioButtonLabel,
-} from 'react-native-simple-radio-button';
+import {Headers} from '../../components';
 
 /******************** constants ********************/
 const COLOR_SCHEME = Appearance.getColorScheme();
@@ -58,27 +51,11 @@ class OrderSummary extends Component {
             borderTopRightRadius: hp(5),
             paddingTop: hp(2),
           }}>
-          <View style={{flexDirection: 'row'}}>
-            <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-              <Ionicons
-                style={styles.BackIcon}
-                color={'black'}
-                name="arrow-back"
-                size={30}
-              />
-            </TouchableOpacity>
-            <Text
-              style={{
-                color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
-                fontSize: DynamicAppStyles.fontSize.middium,
-                fontFamily: DynamicAppStyles.fontFamily.RubikMedium,
-                alignSelf: 'center',
-                width: wp(80),
-                textAlign: 'center',
-              }}>
-              Order Summary
-            </Text>
-          </View>
+          <Headers
+            onPress={() => this.props.navigation.goBack()}
+            isBack={true}
+            title={'Order Summary'}
+          />
           <ScrollView contentContainerStyle={{paddingHorizontal: wp(4)}}>
             <Text style={styles.titleText}>Booking Details</Text>
             <View style={styles.detailsView}>

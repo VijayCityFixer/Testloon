@@ -130,7 +130,8 @@ class Details extends Component {
                 <Text style={styles.mrpText}>{this.state.Data?.mrp}</Text>
                 <Text style={styles.offText}>{this.state.Data?.discount}</Text>
               </View>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('Schedule')}>
                 <Text style={styles.btn}>Book</Text>
               </TouchableOpacity>
             </View>

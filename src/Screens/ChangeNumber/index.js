@@ -27,7 +27,6 @@ class ChangeNumber extends Component {
     };
   }
   handleChange = otp => this.setState({otp});
-
   render() {
     return (
       <View style={styles.container}>
@@ -82,7 +81,9 @@ class ChangeNumber extends Component {
           <Button
             onPress={() =>
               this.state.isOtp
-                ? this.setState({isOtp: false})
+                ? this.props.route?.params?.fromRegister
+                  ? this.props.navigation.navigate('Registration')
+                  : this.setState({isOtp: false})
                 : this.setState({isOtp: true})
             }
             style={{width: wp(45), marginBottom: hp(4)}}

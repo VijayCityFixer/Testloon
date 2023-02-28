@@ -113,12 +113,7 @@ class Home extends Component {
               onPress={data => console.log(data)}
             />
             <View style={{height: hp(36)}}>
-              <Text
-                style={{
-                  color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
-                  fontSize: DynamicAppStyles.fontSize.small,
-                  paddingHorizontal: wp(6),
-                }}>
+              <Text style={styles.subTitle}>
                 Recommended Relaxation Farms for you
               </Text>
               <SwiperFlatList
@@ -169,7 +164,9 @@ class Home extends Component {
               <Text style={styles.exploreBtn}>Explore All</Text>
             </TouchableOpacity>
 
-            <Text>Recommended party plot for events</Text>
+            <Text style={[styles.subTitle, {marginBottom: hp(2)}]}>
+              Recommended party plot for events
+            </Text>
             <SwiperFlatList
               autoplay
               autoplayDelay={2}

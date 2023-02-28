@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {View, Appearance, Image, Text, StatusBar} from 'react-native';
+import {
+  View,
+  Appearance,
+  Image,
+  Text,
+  StatusBar,
+  TouchableOpacity,
+} from 'react-native';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -14,7 +21,10 @@ const COLOR_SCHEME = Appearance.getColorScheme();
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      userName: '',
+      password: '',
+    };
   }
 
   render() {
@@ -39,6 +49,7 @@ class Login extends Component {
               marginBottom: hp(4),
               width: wp(80),
             }}
+            onChangeText={t => this.setState({userName: t})}
           />
           <InputText
             placeholder={'Enter Password'}
@@ -47,13 +58,32 @@ class Login extends Component {
               DynamicAppStyles.colorSet[COLOR_SCHEME].Silver
             }
             inputtextstyle={{
-              marginBottom: hp(10),
+              marginBottom: hp(1),
               width: wp(80),
             }}
+            onChangeText={t => this.setState({password: t})}
           />
+          <TouchableOpacity
+            style={{alignSelf: 'flex-end', marginRight: wp(10)}}
+            onPress={() =>
+              this.props.navigation.navigate('ChangeNumber', {
+                fromRegister: true,
+              })
+            }>
+            <Text
+              style={{
+                fontSize: DynamicAppStyles.fontSize.xsmall,
+                color: DynamicAppStyles.colorSet[COLOR_SCHEME].NeonBlue,
+                textDecorationLine: 'underline',
+              }}>
+              Create new account?
+            </Text>
+          </TouchableOpacity>
           <Button
-            onPress={() => this.props.navigation.push('BottomTab')}
-            style={{width: wp(45), marginBottom: hp(4)}}
+            onPress={() =>
+              this.props.navigation.push('BottomTab', {screen: 'Home'})
+            }
+            style={{width: wp(45), marginBottom: hp(4), marginTop: hp(8)}}
             title={'Login'}
           />
         </View>

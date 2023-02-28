@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: wp(10),
     backgroundColor: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
     borderRadius: hp(5),
+    marginVertical: hp(2),
   },
   mainView: {
     backgroundColor: DynamicAppStyles.colorSet[COLOR_SCHEME].White,
@@ -47,6 +48,11 @@ const styles = StyleSheet.create({
     width: hp(5),
     alignSelf: 'center',
     marginVertical: hp(2),
+  },
+  subTitle: {
+    color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
+    fontSize: DynamicAppStyles.fontSize.small,
+    paddingHorizontal: wp(6),
   },
 });
 export default styles;

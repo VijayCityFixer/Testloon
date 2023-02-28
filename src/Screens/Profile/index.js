@@ -57,7 +57,7 @@ class Profile extends Component {
             </View>
             <View>
               <TouchableOpacity
-                onPress={() => this.props.navigation.navigate('ChangeNumber')}>
+                onPress={() => this.props.navigation.navigate('EditProfile')}>
                 <Text style={styles.editText}>Edit</Text>
               </TouchableOpacity>
             </View>
