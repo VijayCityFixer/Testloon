@@ -14,7 +14,7 @@ import {
 } from 'react-native-responsive-screen';
 import {DynamicAppStyles} from '../../theme';
 import styles from './style';
-import StarRating from 'react-native-star-rating';
+import StarRating from '../../components/react-native-star-rating';
 import {Headers} from '../../components';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
