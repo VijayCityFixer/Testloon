@@ -10,9 +10,13 @@ export default  class App extends Component {
   }
   render() {
     return (
-          <SafeAreaProvider>
-            <AppNavigator />
-          </SafeAreaProvider>
+      <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: '#12AE19'
+      }}>
+      <AppNavigator />
+    </SafeAreaView>
     );
   }
 }

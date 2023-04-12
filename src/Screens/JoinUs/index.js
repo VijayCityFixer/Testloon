@@ -18,6 +18,7 @@ import {Headers} from '../../components';
 import {InputText, Button} from '../../components';
 import {Dropdown} from 'react-native-element-dropdown';
 import Entypo from 'react-native-vector-icons/Entypo';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const COLOR_SCHEME = Appearance.getColorScheme();
 
@@ -52,6 +53,7 @@ class JoinUs extends Component {
             isBack={true}
             title={'Join Us'}
           />
+                    <KeyboardAwareScrollView  style={{flex:1}}>
           <ScrollView>
             <InputText
               placeholder={'Enter your full name'}
@@ -140,6 +142,7 @@ class JoinUs extends Component {
             </View>
             <Button style={styles.btnStyle} title={'Submit'} />
           </ScrollView>
+          </KeyboardAwareScrollView>
         </View>
       </View>
     );

@@ -6,6 +6,7 @@ import {
   Image,
   Text,
   TouchableOpacity,
+  KeyboardAvoidingView,
 } from 'react-native';
 import {Logo, Hotal, user} from '../../assets';
 import {
@@ -19,6 +20,7 @@ import {Headers} from '../../components';
 import {InputText, Button} from '../../components';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 /******************** constants ********************/
 const COLOR_SCHEME = Appearance.getColorScheme();
@@ -48,6 +50,7 @@ class Registration extends Component {
           backgroundColor: DynamicAppStyles.colorSet[COLOR_SCHEME].KellyGreen,
         }}>
         <Image style={styles.logoStyle} source={Logo} />
+          <KeyboardAwareScrollView style={{flex:1}}>
         <View style={styles.container}>
           <Headers
             onPress={() => this.props.navigation.goBack()}
@@ -117,6 +120,7 @@ class Registration extends Component {
 
           <Button style={styles.btnStyle} title={'Register'} />
         </View>
+        </KeyboardAwareScrollView>
       </View>
     );
   }

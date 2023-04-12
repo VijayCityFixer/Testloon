@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Text, View, Platform, Image, Appearance} from 'react-native';
+import {Text, View, Platform, Image, Appearance, SafeAreaView} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -65,6 +65,7 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
+    <SafeAreaView style={{ flex: 1 }}>
     <NavigationContainer>
       <Stack.Navigator initialRouteName={'Login'}>
         {StackScreens.map(item => (
@@ -76,6 +77,7 @@ export default function App() {
         ))}
       </Stack.Navigator>
     </NavigationContainer>
+    </SafeAreaView>
   );
 }
 

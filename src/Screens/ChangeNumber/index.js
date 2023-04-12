@@ -61,7 +61,7 @@ class ChangeNumber extends Component {
             />
           ) : (
             <InputText
-              keyboardType={'number-pad'}
+              keyboardType={'numbers-and-punctuation'}
               placeholder={'Enter your number'}
               maxlength={10}
               isPhone={true}

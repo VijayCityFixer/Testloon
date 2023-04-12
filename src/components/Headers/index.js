@@ -20,7 +20,7 @@ export function Headers({title, isBack, onPress, linearViewStyle, titleStyle}) {
       <View style={{flexDirection: 'row'}}>
         {isBack && (
           <TouchableOpacity
-            style={{position: 'absolute', left: wp(6)}}
+            style={{position: 'absolute', left: wp(6),zIndex:1}}
             onPress={() => onPress()}>
             <Ionicons
               style={styles.icon}
