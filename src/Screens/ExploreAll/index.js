@@ -10,6 +10,7 @@ import {DynamicAppStyles} from '../../theme';
 import Entypo from 'react-native-vector-icons/Entypo';
 import styles from './style';
 import {Dropdown} from 'react-native-element-dropdown';
+import {Headers} from '../../components';
 
 /******************** constants ********************/
 const COLOR_SCHEME = Appearance.getColorScheme();
@@ -84,7 +85,13 @@ class ExploreAll extends Component {
           backgroundColor: DynamicAppStyles.colorSet[COLOR_SCHEME].KellyGreen,
         }}>
         <Image style={styles.logoImage} source={Logo} />
+
         <View style={styles.container}>
+        <Headers
+            onPress={() => this.props.navigation.goBack()}
+            isBack={true}
+            title={'Explore All'}
+          />
           <Dropdown
             style={[styles.dropdown]}
             data={this.state.Type}

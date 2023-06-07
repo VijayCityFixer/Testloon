@@ -21,14 +21,15 @@ export function AddsSlider({ data,onPress,mainViewStyle,imageStyles}) {
   return (
     <View style={[styles.mainView,mainViewStyle]}>
         <SwiperFlatList
+        paginationStyleItem={{marginRight:1}}
       autoplay
       autoplayDelay={2}
       autoplayLoop
       index={0}
       showPagination
       data={data}
-      paginationStyleItemActive={{backgroundColor:DynamicAppStyles.colorSet[COLOR_SCHEME].Black,height:10,width:10,marginTop:hp(1)}}
-      paginationStyleItemInactive={{backgroundColor:'transparent',height:10,width:10,borderWidth:1,marginTop:hp(1)}}
+      paginationStyleItemActive={{backgroundColor:DynamicAppStyles.colorSet[COLOR_SCHEME].Black,height:9,width:9,marginTop:hp(1)}}
+      paginationStyleItemInactive={{backgroundColor:'transparent',height:9,width:9,borderWidth:1,marginTop:hp(1)}}
       renderItem={({ item }) => (
         <Image
         style={[{ width: wp(84),marginHorizontal:wp(8),elevation:10,height:hp(18),borderRadius:hp(3)},imageStyles]}

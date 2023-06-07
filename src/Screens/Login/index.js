@@ -40,7 +40,7 @@ class Login extends Component {
           />
           <Text style={styles.loginText}>Login</Text>
           <InputText
-            placeholder={'Enter Username'}
+            placeholder={'Enter Email'}
             inputstyle={{fontSize: DynamicAppStyles.fontSize.normal}}
             placeholderTextColor={
               DynamicAppStyles.colorSet[COLOR_SCHEME].Silver

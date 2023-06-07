@@ -1,12 +1,13 @@
-import React, {Component, useEffect, useRef} from 'react';
-import {View, StyleSheet, TextInput, Appearance, Text} from 'react-native';
-import {DynamicAppStyles} from '../../theme';
+import React, { Component, useEffect, useRef } from 'react';
+import { View, StyleSheet, TextInput, Appearance, Text, TouchableOpacity } from 'react-native';
+import { DynamicAppStyles } from '../../theme';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {RFValue} from 'react-native-responsive-fontsize';
+import { RFValue } from 'react-native-responsive-fontsize';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const COLOR_SCHEME = Appearance.getColorScheme();
 
@@ -34,7 +35,9 @@ export const InputText = ({
 }) => {
   const ref = useRef(null);
   const [isFocused, setIsFocused] = React.useState(false);
-
+  const [visibility, setVisibility] = React.useState(
+    secureTextEntry ? true : false,
+  );
   return (
     <View style={[styles.inputtextstyle, inputtextstyle]}>
       {searchlable && (
@@ -58,7 +61,7 @@ export const InputText = ({
           style={[styles.phoneNumberView]}
         />
       )}
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1, }}>
         <TextInput
           ref={_ref => {
             ref.current = _ref;
@@ -72,7 +75,7 @@ export const InputText = ({
           onSubmit={onSubmit}
           value={value}
           editable={editable}
-          secureTextEntry={secureTextEntry}
+          secureTextEntry={visibility}
           maxLength={maxlength}
           autoFocus={isFocus}
           style={[styles.inputstyle, inputstyle]}
@@ -82,6 +85,16 @@ export const InputText = ({
         />
         {errorText?.length > 0 && (
           <Text style={styles.errorText}>{errorText}</Text>
+        )}
+        {secureTextEntry && (
+          <TouchableOpacity
+            style={{ position: 'absolute', right: wp(4), top: hp(2) }}
+            onPress={() => setVisibility(!visibility)}>
+            <FontAwesome
+              name={visibility ? 'eye-slash' : 'eye'}
+              size={hp(2.2)}
+            />
+          </TouchableOpacity>
         )}
       </View>
     </View>
@@ -97,6 +110,7 @@ const styles = StyleSheet.create({
     paddingLeft: wp(10),
     borderWidth: 1,
     color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
+    width: '100%'
   },
   inputtextstyle: {
     flexDirection: 'row',

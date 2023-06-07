@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: DynamicAppStyles.colorSet[COLOR_SCHEME].KellyGreen,
-    paddingVertical: wp(2.5),
+    paddingVertical: hp(1.6),
     borderRadius: wp(2.6),
   },
   TxtTitle: {

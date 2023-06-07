@@ -19,7 +19,7 @@ export function HotalDetails({ onPress, title, style ,subTitle,mrp,discount,pric
   return (
     <TouchableOpacity style={[styles.button,style]} onPress={onPress}>
         <View style={{borderWidth:0}}>
-          <Image style={{width:wp(90),height:hp(15),borderTopRightRadius:hp(2),borderTopLeftRadius:hp(2)}} source={image} />
+          <Image style={{width:wp(89.1),height:hp(15),borderTopRightRadius:hp(3),borderTopLeftRadius:hp(3)}} source={image} />
           <View style={{paddingHorizontal:wp(4)}}>
           <Text style={styles.titleText}>{title}</Text>
           <Text 
@@ -29,7 +29,7 @@ export function HotalDetails({ onPress, title, style ,subTitle,mrp,discount,pric
                color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
                fontSize: DynamicAppStyles.fontSize.small,
                fontFamily: DynamicAppStyles.fontFamily.RubikSemiBold,
-               paddingEnd:wp(2)
+               paddingEnd:wp(3)
             }}>₹ {price}</Text>
             <Text
              style={{
@@ -37,7 +37,7 @@ export function HotalDetails({ onPress, title, style ,subTitle,mrp,discount,pric
                fontSize: DynamicAppStyles.fontSize.small,
                fontFamily: DynamicAppStyles.fontFamily.RubikSemiBold,
                textDecorationLine:'line-through',
-               paddingEnd:wp(2)
+               paddingEnd:wp(3)
             }}
             >{mrp}</Text>
             <Text style={{

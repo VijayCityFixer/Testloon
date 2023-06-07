@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Appearance,
@@ -7,19 +7,20 @@ import {
   TouchableOpacity,
   Text,
 } from 'react-native';
-import {Logo, Hotal} from '../../assets';
-import {DynamicAppStyles} from '../../theme';
+import { Logo, Hotal } from '../../assets';
+import { DynamicAppStyles } from '../../theme';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
-import {HotalDetails} from '../../components';
-import {SwiperFlatList} from 'react-native-swiper-flatlist';
-import {AddsSlider} from '../../components/AddsSlider';
-import {ExploreOffer} from '../../components/ExploreOffer';
-import {Dropdown} from 'react-native-element-dropdown';
+import { HotalDetails } from '../../components';
+import { SwiperFlatList } from 'react-native-swiper-flatlist';
+import { AddsSlider } from '../../components/AddsSlider';
+import { ExploreOffer } from '../../components/ExploreOffer';
+import { Dropdown } from 'react-native-element-dropdown';
 import styles from './style';
-import Entypo from 'react-native-vector-icons/Entypo';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 /******************** constants ********************/
 const COLOR_SCHEME = Appearance.getColorScheme();
@@ -56,11 +57,11 @@ class Home extends Component {
         },
       ],
       City: [
-        {label: 'Surat', value: '1'},
-        {label: 'Anand', value: '2'},
-        {label: 'Baroda', value: '3'},
-        {label: 'Ahmedabad', value: '4'},
-        {label: 'Nadiad', value: '5'},
+        { label: 'Surat', value: '1' },
+        { label: 'Anand', value: '2' },
+        { label: 'Baroda', value: '3' },
+        { label: 'Ahmedabad', value: '4' },
+        { label: 'Nadiad', value: '5' },
       ],
     };
   }
@@ -76,12 +77,7 @@ class Home extends Component {
         <View style={styles.mainView}>
           <ScrollView>
             <Text
-              style={{
-                color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
-                fontSize: DynamicAppStyles.fontSize.normal,
-                fontFamily: DynamicAppStyles.fontFamily.RubikMedium,
-                paddingStart: wp(4),
-              }}>
+              style={styles.locarionText}>
               Location
             </Text>
             <Dropdown
@@ -97,14 +93,22 @@ class Home extends Component {
                 color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
               }}
               onChange={item => {
-                this.setState({currentCity: item.value});
+                this.setState({ currentCity: item.value });
               }}
               renderLeftIcon={() => (
-                <Entypo
+                <Ionicons
                   style={styles.icon}
                   color={'black'}
-                  name="location-pin"
-                  size={20}
+                  name="location-sharp"
+                  size={hp(3)}
+                />
+              )}
+              renderRightIcon={() => (
+                <AntDesign
+                  style={styles.icon}
+                  color={'black'}
+                  name="caretdown"
+                  size={hp(2)}
                 />
               )}
             />
@@ -112,11 +116,12 @@ class Home extends Component {
               data={this.state.data}
               onPress={data => console.log(data)}
             />
-            <View style={{height: hp(36)}}>
+            <View style={{ height: hp(36) }}>
               <Text style={styles.subTitle}>
                 Recommended Relaxation Farms for you
               </Text>
               <SwiperFlatList
+                paginationStyleItem={{ marginRight: 1 }}
                 autoplay
                 autoplayDelay={2}
                 autoplayLoop
@@ -126,18 +131,18 @@ class Home extends Component {
                 paginationStyleItemActive={{
                   backgroundColor:
                     DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
-                  height: 10,
-                  width: 10,
+                  height: 9,
+                  width: 9,
                   marginTop: hp(1),
                 }}
                 paginationStyleItemInactive={{
                   backgroundColor: 'transparent',
-                  height: 10,
-                  width: 10,
+                  height: 9,
+                  width: 9,
                   borderWidth: 1,
                   marginTop: hp(1),
                 }}
-                renderItem={({item}) => (
+                renderItem={({ item }) => (
                   <HotalDetails
                     style={{
                       width: wp(90),
@@ -160,14 +165,16 @@ class Home extends Component {
               TitleText={'Exclusive offers for you'}
             />
             <TouchableOpacity
+              style={styles.exploreView}
               onPress={() => this.props.navigation.navigate('ExploreAll')}>
               <Text style={styles.exploreBtn}>Explore All</Text>
             </TouchableOpacity>
 
-            <Text style={[styles.subTitle, {marginBottom: hp(2)}]}>
+            <Text style={[styles.subTitle, { marginBottom: hp(2) }]}>
               Recommended party plot for events
             </Text>
             <SwiperFlatList
+              paginationStyleItem={{ marginRight: 1 }}
               autoplay
               autoplayDelay={2}
               autoplayLoop
@@ -176,25 +183,20 @@ class Home extends Component {
               data={this.state.data}
               paginationStyleItemActive={{
                 backgroundColor: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
-                height: 10,
-                width: 10,
+                height: 9,
+                width: 9,
                 marginTop: hp(1),
               }}
               paginationStyleItemInactive={{
                 backgroundColor: 'transparent',
-                height: 10,
-                width: 10,
+                height: 9,
+                width: 9,
                 borderWidth: 1,
                 marginTop: hp(1),
               }}
-              renderItem={({item}) => (
+              renderItem={({ item }) => (
                 <HotalDetails
-                  style={{
-                    width: wp(90),
-                    marginHorizontal: wp(5),
-                    elevation: 10,
-                    marginBottom: hp(5),
-                  }}
+                  style={styles.hotalDetailsView}
                   image={Hotal}
                   title={'La cassa'}
                   subTitle={'Anand,Gujarat'}

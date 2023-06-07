@@ -1,5 +1,5 @@
-import {Platform, StyleSheet, Appearance} from 'react-native';
-import {DynamicAppStyles} from '../../theme';
+import { Platform, StyleSheet, Appearance } from 'react-native';
+import { DynamicAppStyles } from '../../theme';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -59,5 +59,12 @@ const styles = StyleSheet.create({
     color: DynamicAppStyles.colorSet[COLOR_SCHEME].White,
     fontSize: DynamicAppStyles.fontSize.normal,
   },
+  mainView: {
+    backgroundColor: DynamicAppStyles.colorSet[COLOR_SCHEME].White,
+    flex: 1,
+    borderTopLeftRadius: hp(5),
+    borderTopRightRadius: hp(5),
+    paddingTop: hp(2),
+  }
 });
 export default styles;

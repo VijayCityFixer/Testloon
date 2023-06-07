@@ -33,9 +33,9 @@ class ChangeNumber extends Component {
         <StatusBar
           backgroundColor={DynamicAppStyles.colorSet[COLOR_SCHEME].KellyGreen}
         />
-        <View style={styles.mainView}>
-          <View style={{marginVertical: hp(3.5), alignItems: 'center'}}>
-            <Image style={{height: hp(10), width: hp(10)}} source={Logo} />
+        <View style={[styles.mainView,this.state.isOtp&&{justifyContent:'center'}]}>
+          <View style={{marginBottom: hp(3.5), alignItems: 'center'}}>
+            <Image style={{height: hp(9), width: hp(9)}} source={Logo} />
             {this.state.isOtp && (
               <Text style={styles.otpText}>
                 Enter OTP sended to {this.state.phoneNumber}
@@ -73,8 +73,7 @@ class ChangeNumber extends Component {
               }
               inputtextstyle={{
                 marginBottom: hp(4),
-                marginLeft: wp(12),
-                marginRight: wp(6),
+                marginHorizontal: wp(10),
               }}
             />
           )}

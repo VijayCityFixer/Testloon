@@ -1,9 +1,9 @@
-import {Platform, StyleSheet, Appearance} from 'react-native';
+import { Platform, StyleSheet, Appearance } from 'react-native';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
-import {DynamicAppStyles} from '../../theme';
+import { DynamicAppStyles } from '../../theme';
 
 const COLOR_SCHEME = Appearance.getColorScheme();
 
@@ -11,8 +11,8 @@ const styles = StyleSheet.create({
   dropdown: {
     borderWidth: 1,
     width: wp(40),
-    height: hp(4),
-    borderRadius: hp(1),
+    height: hp(5),
+    borderRadius: hp(2),
     paddingHorizontal: wp(3),
     marginLeft: wp(3),
     marginVertical: hp(1),
@@ -30,11 +30,15 @@ const styles = StyleSheet.create({
     fontSize: DynamicAppStyles.fontSize.normal,
     textAlign: 'center',
     alignSelf: 'center',
-    padding: hp(1),
-    paddingHorizontal: wp(10),
+  },
+  exploreView: {
+    padding: hp(1.3),
+    paddingHorizontal: wp(18),
     backgroundColor: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
     borderRadius: hp(5),
     marginVertical: hp(2),
+    alignSelf: 'center',
+
   },
   mainView: {
     backgroundColor: DynamicAppStyles.colorSet[COLOR_SCHEME].White,
@@ -54,5 +58,18 @@ const styles = StyleSheet.create({
     fontSize: DynamicAppStyles.fontSize.small,
     paddingHorizontal: wp(6),
   },
+  locarionText: {
+    color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
+    fontSize: DynamicAppStyles.fontSize.normal,
+    fontFamily: DynamicAppStyles.fontFamily.RubikMedium,
+    paddingStart: wp(8),
+    marginBottom: hp(2)
+  },
+  hotalDetailsView: {
+    width: wp(90),
+    marginHorizontal: wp(5),
+    elevation: 10,
+    marginBottom: hp(5),
+  }
 });
 export default styles;

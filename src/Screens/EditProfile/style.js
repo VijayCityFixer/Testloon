@@ -1,5 +1,5 @@
-import {Platform, StyleSheet, Appearance} from 'react-native';
-import {DynamicAppStyles} from '../../theme';
+import { Platform, StyleSheet, Appearance } from 'react-native';
+import { DynamicAppStyles } from '../../theme';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -91,5 +91,11 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginVertical: hp(4),
   },
+  btnView: {
+    width: wp(45),
+    marginBottom: hp(4),
+    alignSelf: 'center',
+    marginVertical: hp(4),
+  }
 });
 export default styles;

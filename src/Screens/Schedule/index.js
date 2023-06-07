@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Appearance,
@@ -7,16 +7,16 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import {Logo, Hotal} from '../../assets';
+import { Logo, Hotal } from '../../assets';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
-import {DynamicAppStyles} from '../../theme';
+import { DynamicAppStyles } from '../../theme';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import styles from './style';
-import {Dropdown} from 'react-native-element-dropdown';
+import { Dropdown } from 'react-native-element-dropdown';
 import RadioForm, {
   RadioButton,
   RadioButtonInput,
@@ -24,7 +24,8 @@ import RadioForm, {
 } from 'react-native-simple-radio-button';
 import DatePicker from 'react-native-date-picker';
 import moment from 'moment/moment';
-import {Headers} from '../../components';
+import { Headers } from '../../components';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 /******************** constants ********************/
 const COLOR_SCHEME = Appearance.getColorScheme();
@@ -35,12 +36,12 @@ class Schedule extends Component {
     this.state = {
       Data: [],
       Type: [
-        {label: 'Relaxion', value: '1'},
-        {label: 'Birthday', value: '2'},
+        { label: 'Relaxion', value: '1' },
+        { label: 'Birthday', value: '2' },
       ],
       paymentOptions: [
-        {label: 'Advance Token', value: 0},
-        {label: 'Advance Payment', value: 1},
+        { label: 'Advance Token', value: 0, price: '$ 5000' },
+        { label: 'Advance Payment', value: 1, price: '$ 10000' },
       ],
       DateModal: false,
       startDate: 'DD/MM/YYYY',
@@ -49,7 +50,7 @@ class Schedule extends Component {
       selectedPayment: 0,
     };
   }
-  componentDidMount() {}
+  componentDidMount() { }
   render() {
     return (
       <View
@@ -58,61 +59,23 @@ class Schedule extends Component {
           backgroundColor: DynamicAppStyles.colorSet[COLOR_SCHEME].KellyGreen,
         }}>
         <Image
-          style={{
-            height: hp(5),
-            width: hp(5),
-            alignSelf: 'center',
-            marginVertical: hp(2),
-          }}
+          style={styles.logo}
           source={Logo}
         />
 
         <View
-          style={{
-            backgroundColor: DynamicAppStyles.colorSet[COLOR_SCHEME].White,
-            flex: 1,
-            borderTopLeftRadius: hp(5),
-            borderTopRightRadius: hp(5),
-            paddingTop: hp(2),
-          }}>
+          style={styles.containerView}>
           <Headers
             onPress={() => this.props.navigation.goBack()}
             isBack={true}
             title={'Schedule'}
           />
-
-          {/* <View style={{flexDirection: 'row'}}>
-            <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-              <Ionicons
-                style={styles.backicon}
-                color={'black'}
-                name="arrow-back"
-                size={30}
-              />
-            </TouchableOpacity>
+          <ScrollView contentContainerStyle={{ paddingHorizontal: wp(4) }}>
             <Text
-              style={{
-                color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
-                fontSize: DynamicAppStyles.fontSize.middium,
-                fontFamily: DynamicAppStyles.fontFamily.RubikMedium,
-                alignSelf: 'center',
-                width: wp(80),
-                textAlign: 'center',
-              }}>
-              Schedule
-            </Text>
-          </View> */}
-          <ScrollView contentContainerStyle={{paddingHorizontal: wp(4)}}>
-            <Text
-              style={{
-                color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
-                fontSize: DynamicAppStyles.fontSize.normal,
-                fontFamily: DynamicAppStyles.fontFamily.RubikMedium,
-                marginVertical: hp(2),
-              }}>
+              style={styles.titleText}>
               Date of Stay
             </Text>
-            <View style={{borderWidth: 1, borderRadius: hp(2)}}>
+            <View style={{ borderWidth: 1, borderRadius: hp(2) }}>
               <View
                 style={{
                   padding: wp(3),
@@ -130,8 +93,8 @@ class Schedule extends Component {
                     {this.state.startDate == 'DD/MM/YYYY'
                       ? 'DD/MM/YYYY'
                       : moment(this.state.startDate).format(
-                          'ddd, DD, MMM YYYY',
-                        )}
+                        'ddd, DD, MMM YYYY',
+                      )}
                   </Text>
                   <Text
                     style={{
@@ -144,13 +107,9 @@ class Schedule extends Component {
                 </View>
                 <Text
                   onPress={() =>
-                    this.setState({DateModal: true, fromEnd: false})
+                    this.setState({ DateModal: true, fromEnd: false })
                   }
-                  style={{
-                    color: DynamicAppStyles.colorSet[COLOR_SCHEME].Red,
-                    fontSize: DynamicAppStyles.fontSize.xsmall,
-                    fontFamily: DynamicAppStyles.fontFamily.RubikMedium,
-                  }}>
+                  style={styles.editText}>
                   Edit
                 </Text>
               </View>
@@ -161,10 +120,10 @@ class Schedule extends Component {
                 date={new Date()}
                 onConfirm={date =>
                   this.state.fromEnd
-                    ? this.setState({endDate: date, DateModal: false})
-                    : this.setState({startDate: date, DateModal: false})
+                    ? this.setState({ endDate: date, DateModal: false })
+                    : this.setState({ startDate: date, DateModal: false })
                 }
-                onCancel={() => this.setState({DateModal: false})}
+                onCancel={() => this.setState({ DateModal: false })}
                 mode={'date'}
               />
               <View
@@ -196,37 +155,36 @@ class Schedule extends Component {
                 </View>
                 <Text
                   onPress={() =>
-                    this.setState({DateModal: true, fromEnd: true})
+                    this.setState({ DateModal: true, fromEnd: true })
                   }
-                  style={{
-                    color: DynamicAppStyles.colorSet[COLOR_SCHEME].Red,
-                    fontSize: DynamicAppStyles.fontSize.xsmall,
-                    fontFamily: DynamicAppStyles.fontFamily.RubikMedium,
-                  }}>
+                  style={styles.editText}>
                   Edit
                 </Text>
               </View>
             </View>
             <Text
-              style={{
-                color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
-                fontSize: DynamicAppStyles.fontSize.normal,
-                fontFamily: DynamicAppStyles.fontFamily.RubikMedium,
-                marginVertical: hp(2),
-              }}>
+              style={styles.titleText}>
               Guests
             </Text>
-            <View style={{borderWidth: 1, borderRadius: hp(2)}}></View>
+            <View
+              style={styles.guestView}>
+              <View>
+                <Text
+                  style={styles.subText}>
+                  Guests
+                </Text>
+              </View>
+              <Text
+                style={styles.editText}>
+                Edit
+              </Text>
+            </View>
+
             <Text
-              style={{
-                color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
-                fontSize: DynamicAppStyles.fontSize.normal,
-                fontFamily: DynamicAppStyles.fontFamily.RubikMedium,
-                marginVertical: hp(2),
-              }}>
+              style={styles.titleText}>
               Event
             </Text>
-            <View style={{borderWidth: 1, borderRadius: hp(2)}}>
+            <View style={{ borderWidth: 1, borderRadius: hp(2) }}>
               <Dropdown
                 style={[styles.dropdown]}
                 data={this.state.Type}
@@ -234,77 +192,67 @@ class Schedule extends Component {
                 maxHeight={300}
                 labelField="label"
                 valueField="value"
-                value={'1'}
-                placeholder={'Select City'}
+                value={'0'}
+                placeholderStyle={{ color: DynamicAppStyles.colorSet[COLOR_SCHEME].DimGray }}
+                placeholder={'Please select event'}
                 onChange={item => {
-                  this.setState({currentCity: item.value});
+                  this.setState({ currentCity: item.value });
                 }}
                 itemTextStyle={{
                   color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
                 }}
-                renderLeftIcon={() => (
-                  <Entypo
+                renderRightIcon={() => (
+                  <AntDesign
                     style={styles.icon}
                     color={'black'}
-                    name="location-pin"
-                    size={20}
+                    name="caretdown"
+                    size={hp(2)}
                   />
+                )}
+                renderLeftIcon={() => (
+                  null
                 )}
               />
             </View>
             <Text
-              style={{
-                color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
-                fontSize: DynamicAppStyles.fontSize.normal,
-                fontFamily: DynamicAppStyles.fontFamily.RubikMedium,
-                marginVertical: hp(2),
-              }}>
+              style={styles.titleText}>
               Payment
             </Text>
-            <View style={{borderWidth: 1, borderRadius: hp(2)}}>
-              <RadioForm formHorizontal={false} animation={true}>
-                {this.state.paymentOptions?.map((obj, i) => (
-                  <RadioButton labelHorizontal={true} key={i}>
-                    <RadioButtonInput
-                      obj={obj}
-                      index={i}
-                      isSelected={this.state.selectedPayment === i}
-                      onPress={() => this.setState({selectedPayment: i})}
-                      borderWidth={2.5}
-                      buttonInnerColor={
-                        DynamicAppStyles.colorSet[COLOR_SCHEME].Silver
-                      }
-                      buttonOuterColor={
-                        this.state.selectedPayment === i
-                          ? DynamicAppStyles.colorSet[COLOR_SCHEME].Silver
-                          : '#000'
-                      }
-                      buttonSize={10}
-                      buttonOuterSize={20}
-                      buttonWrapStyle={{margin: hp(1), marginLeft: wp(5)}}
-                    />
-                    <RadioButtonLabel
-                      obj={obj}
-                      index={i}
-                      labelHorizontal={true}
-                      onPress={() => this.setState({selectedPayment: i})}
-                      labelStyle={{
-                        color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
-                        fontSize: DynamicAppStyles.fontSize.xsmall,
-                        fontFamily: DynamicAppStyles.fontFamily.RubikRegular,
-                      }}
-                      labelWrapStyle={{}}
-                    />
-                  </RadioButton>
-                ))}
-              </RadioForm>
+            <View style={{ borderWidth: 1, borderRadius: hp(2) }}>
+              {this.state.paymentOptions?.map((obj, i) => (
+                <TouchableOpacity onPress={() => this.setState({ selectedPayment: i })}>
+
+                  <View style={{ flexDirection: 'row', margin: hp(1), marginLeft: wp(5), alignItems: 'center' }}>
+                    <View style={[styles.radioView, this.state.selectedPayment === i ? { opacity: 1 } : { opacity: 0.5 }]}>
+                      {this.state.selectedPayment == i ? < View style={{ backgroundColor: DynamicAppStyles.colorSet[COLOR_SCHEME].Black, height: hp(1.3), width: hp(1.3), borderRadius: hp(0.75) }} /> : null}
+                    </View>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', marginHorizontal: wp(3) }}>
+                      <Text
+                        style={styles.paymentlabel}>
+                        {obj.label}
+                      </Text>
+                      <Text
+                        onPress={() =>
+                          this.setState({ DateModal: true, fromEnd: false })
+                        }
+                        style={{
+                          color: DynamicAppStyles.colorSet[COLOR_SCHEME].Red,
+                          fontSize: DynamicAppStyles.fontSize.xsmall,
+                          fontFamily: DynamicAppStyles.fontFamily.RubikMedium,
+                        }}>
+                        {obj.price}
+                      </Text>
+                    </View>
+                  </View>
+                </TouchableOpacity>
+              ))}
             </View>
           </ScrollView>
           <TouchableOpacity
             onPress={() => this.props.navigation.navigate('OrderSummary')}
             style={styles.bookBtn}>
             <View
-              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+              style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
               <Text style={styles.btnText}>$5000</Text>
               <Text style={styles.btnText}>Pay & Book</Text>
             </View>

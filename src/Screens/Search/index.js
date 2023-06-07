@@ -10,6 +10,8 @@ import {DynamicAppStyles} from '../../theme';
 import {InputText, Button} from '../../components';
 import SearchInput, {createFilter} from 'react-native-search-filter';
 import styles from './style';
+import LinearGradient from 'react-native-linear-gradient';
+
 const KEYS_TO_FILTERS = ['title'];
 
 /******************** constants ********************/
@@ -98,6 +100,7 @@ class Search extends Component {
               borderWidth: 0,
               paddingLeft: wp(4),
               height: hp(5.5),
+              
             }}
             placeholderTextColor={
               DynamicAppStyles.colorSet[COLOR_SCHEME].Silver
@@ -110,6 +113,12 @@ class Search extends Component {
               borderColor: DynamicAppStyles.colorSet[COLOR_SCHEME].Silver,
             }}
           />
+          <LinearGradient
+        start={{x: 0, y: 0}}
+        end={{x: 1, y: 0}}
+        colors={['#bcbcbc', '#000']}
+        style={[styles.linearStyle]}
+      />
           <ScrollView>
             {this.state.searchData?.length > 0 &&
               this.state.searchData.map(item => {

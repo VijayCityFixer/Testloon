@@ -58,7 +58,7 @@ class Registration extends Component {
             title={'Registration'}
           />
           <View style={styles.editBtnView}>
-            <Image source={user} style={{height: hp(10), width: hp(10)}} />
+            <Image source={user} style={{height: hp(12), width: hp(12)}} />
             <TouchableOpacity
               style={styles.editBtn}
               onPress={() => this.props.navigation.goBack()}>
@@ -73,8 +73,7 @@ class Registration extends Component {
             }
             inputtextstyle={{
               marginBottom: hp(4),
-              marginLeft: wp(12),
-              marginRight: wp(6),
+              marginHorizontal: wp(10),
             }}
             onChangeText={txt => this.setState({fullName: txt})}
             errorText={this.state.isNameError}
@@ -87,8 +86,7 @@ class Registration extends Component {
             }
             inputtextstyle={{
               marginBottom: hp(3),
-              marginLeft: wp(12),
-              marginRight: wp(6),
+              marginHorizontal: wp(10),
             }}
             onChangeText={txt => this.setState({email: txt})}
             isError={this.state.isEmailError}
@@ -101,8 +99,7 @@ class Registration extends Component {
             }
             inputtextstyle={{
               marginBottom: hp(3),
-              marginLeft: wp(12),
-              marginRight: wp(6),
+              marginHorizontal: wp(10),
             }}
             onChangeText={txt => this.setState({password: txt})}
             isError={this.state.isPasswordError}

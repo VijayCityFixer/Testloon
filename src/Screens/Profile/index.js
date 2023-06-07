@@ -76,7 +76,7 @@ class Profile extends Component {
                 style={styles.icon}
                 color={'black'}
                 name="arrow-right"
-                size={30}
+                size={25}
               />
             </View>
           </TouchableOpacity>
@@ -94,7 +94,25 @@ class Profile extends Component {
                 style={styles.icon}
                 color={'black'}
                 name="arrow-right"
-                size={30}
+                size={25}
+              />
+            </View>
+          </TouchableOpacity>
+          <LinearGradient
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 0}}
+            colors={['#bcbcbc', '#000']}
+            style={[styles.linearStyle, {height: hp(0.5)}]}
+          />
+           <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('ChangePassword')}>
+            <View style={styles.btnView}>
+              <Text style={styles.normalText}>Change Password</Text>
+              <FontAwesome5
+                style={styles.icon}
+                color={'black'}
+                name="arrow-right"
+                size={25}
               />
             </View>
           </TouchableOpacity>

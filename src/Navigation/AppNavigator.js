@@ -23,6 +23,7 @@ import EditProfile from '../Screens/EditProfile';
 import ChangeNumber from '../Screens/ChangeNumber';
 import Registration from '../Screens/Registration';
 import JoinUs from '../Screens/JoinUs';
+import ChangePassword from '../Screens/ChangePassword';
 
 const COLOR_SCHEME = Appearance.getColorScheme();
 
@@ -58,6 +59,11 @@ const StackScreens = [
     component: JoinUs,
     options: {headerShown: false},
   },
+  {
+    name: 'ChangePassword',
+    component: ChangePassword,
+    options: {headerShown: false},
+  },
 ];
 
 const Tab = createBottomTabNavigator();
@@ -90,6 +96,7 @@ function BottomTab() {
         tabBarActiveTintColor: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
         tabBarInactiveTintColor: DynamicAppStyles.colorSet[COLOR_SCHEME].Silver,
         tabBarLabelStyle: {
+          top:-5,
           fontSize: DynamicAppStyles.fontSize.xmsmall,
           fontFamily: DynamicAppStyles.fontFamily.RubikRegular,
         },

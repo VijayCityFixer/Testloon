@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     backgroundColor: DynamicAppStyles.colorSet[COLOR_SCHEME].KellyGreen,
     borderRadius: hp(1),
     marginVertical: hp(2),
+    overflow:'hidden'
   },
   mainTitle: {
     color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
@@ -45,10 +46,11 @@ const styles = StyleSheet.create({
     fontSize: DynamicAppStyles.fontSize.normal,
     textAlign: 'center',
     alignSelf: 'center',
-    padding: hp(1),
-    paddingHorizontal: wp(10),
+    padding: hp(1.4),
+    paddingHorizontal: wp(15),
     backgroundColor: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
-    borderRadius: hp(5),
+    borderRadius: hp(2.8),
+    overflow:'hidden'
   },
   container: {
     backgroundColor: DynamicAppStyles.colorSet[COLOR_SCHEME].White,

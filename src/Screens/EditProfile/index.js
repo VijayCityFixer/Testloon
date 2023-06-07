@@ -1,4 +1,4 @@
-import React, {Component, Profiler} from 'react';
+import React, { Component, Profiler } from 'react';
 import {
   View,
   Appearance,
@@ -7,17 +7,17 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import {Logo, Hotal, user} from '../../assets';
+import { Logo, Hotal, user } from '../../assets';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
-import {DynamicAppStyles} from '../../theme';
+import { DynamicAppStyles } from '../../theme';
 import styles from './style';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {Headers} from '../../components';
-import {InputText, Button} from '../../components';
+import { Headers } from '../../components';
+import { InputText, Button } from '../../components';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
@@ -33,9 +33,9 @@ class EditProfile extends Component {
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() { }
   onStarRatingPress = n => {
-    this.setState({starCount: n});
+    this.setState({ starCount: n });
   };
   render() {
     return (
@@ -52,7 +52,7 @@ class EditProfile extends Component {
             title={'Edit Profile'}
           />
           <View style={styles.editBtnView}>
-            <Image source={user} style={{height: hp(10), width: hp(10)}} />
+            <Image source={user} style={{ height: hp(10), width: hp(10) }} />
             <TouchableOpacity
               style={styles.editBtn}
               onPress={() => this.props.navigation.goBack()}>
@@ -61,7 +61,7 @@ class EditProfile extends Component {
           </View>
           <InputText
             placeholder={'Enter your first name'}
-            inputstyle={{fontSize: DynamicAppStyles.fontSize.normal}}
+            inputstyle={{ fontSize: DynamicAppStyles.fontSize.normal }}
             placeholderTextColor={
               DynamicAppStyles.colorSet[COLOR_SCHEME].Silver
             }
@@ -70,11 +70,11 @@ class EditProfile extends Component {
               marginLeft: wp(12),
               marginRight: wp(6),
             }}
-            onChangeText={t => this.setState({firstName: t})}
+            onChangeText={t => this.setState({ firstName: t })}
           />
           <InputText
             placeholder={'Enter your last name'}
-            inputstyle={{fontSize: DynamicAppStyles.fontSize.normal}}
+            inputstyle={{ fontSize: DynamicAppStyles.fontSize.normal }}
             placeholderTextColor={
               DynamicAppStyles.colorSet[COLOR_SCHEME].Silver
             }
@@ -83,11 +83,11 @@ class EditProfile extends Component {
               marginLeft: wp(12),
               marginRight: wp(6),
             }}
-            onChangeText={t => this.setState({lastName: t})}
+            onChangeText={t => this.setState({ lastName: t })}
           />
           <LinearGradient
-            start={{x: 0, y: 0}}
-            end={{x: 1, y: 0}}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
             colors={['#bcbcbc', '#000']}
             style={[styles.linearStyle]}
           />
@@ -104,18 +104,13 @@ class EditProfile extends Component {
             </View>
           </TouchableOpacity>
           <LinearGradient
-            start={{x: 0, y: 0}}
-            end={{x: 1, y: 0}}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
             colors={['#bcbcbc', '#000']}
             style={[styles.linearStyle]}
           />
           <Button
-            style={{
-              width: wp(45),
-              marginBottom: hp(4),
-              alignSelf: 'center',
-              marginVertical: hp(4),
-            }}
+            style={styles.btnView}
             title={'Update'}
           />
         </View>

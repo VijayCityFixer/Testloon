@@ -37,5 +37,10 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: hp(5),
     borderTopRightRadius: hp(5),
   },
+  linearStyle: {
+    height: hp(1.3),
+    width: wp(100),
+    marginBottom:hp(3)
+  },
 });
 export default styles;

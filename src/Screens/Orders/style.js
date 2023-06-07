@@ -1,5 +1,5 @@
-import {Platform, StyleSheet, Appearance} from 'react-native';
-import {DynamicAppStyles} from '../../theme';
+import { Platform, StyleSheet, Appearance } from 'react-native';
+import { DynamicAppStyles } from '../../theme';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -35,21 +35,21 @@ const styles = StyleSheet.create({
     color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
     fontSize: DynamicAppStyles.fontSize.xsmall,
     fontFamily: DynamicAppStyles.fontFamily.RubikRegular,
-    marginBottom: hp(0.7),
+    marginBottom: hp(1),
     width: wp(30),
   },
   normalText: {
     color: DynamicAppStyles.colorSet[COLOR_SCHEME].Black,
     fontSize: DynamicAppStyles.fontSize.xsmall,
     fontFamily: DynamicAppStyles.fontFamily.RubikRegular,
-    marginBottom: hp(0.7),
-    width: wp(55),
+    marginBottom: hp(1),
+    width: wp(50),
   },
   detailsView: {
     borderWidth: 1,
     borderRadius: hp(2),
     paddingVertical: hp(2),
-    paddingLeft: wp(5),
+    paddingHorizontal: wp(5),
     marginBottom: hp(2),
   },
   headerView: {
@@ -71,5 +71,12 @@ const styles = StyleSheet.create({
     width: wp(100),
     marginBottom: hp(2),
   },
+  btnView: {
+    width: wp(60),
+    alignSelf: 'center',
+    paddingVertical: hp(1),
+    marginVertical: hp(1),
+    borderRadius: hp(2.5),
+  }
 });
 export default styles;

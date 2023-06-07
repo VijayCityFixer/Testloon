@@ -89,12 +89,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'center',
-    marginVertical: hp(4),
+    marginVertical: hp(5),
+    marginBottom:hp(7)
   },
   textInput: {
     marginBottom: hp(3),
-    marginLeft: wp(12),
-    marginRight: wp(6),
+    marginHorizontal: wp(10),
   },
   btnStyle: {
     width: wp(45),
