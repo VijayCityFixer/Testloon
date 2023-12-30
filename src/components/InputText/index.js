@@ -49,17 +49,20 @@ export const InputText = ({
         />
       )}
       {isPhone && (
-        <TextInput
-          ref={_ref => {
-            ref.current = _ref;
-          }}
-          placeholderTextColor={placeholderTextColor}
-          selectionColor={selectionColor}
-          editable={false}
-          value={'+91'}
-          secureTextEntry={secureTextEntry}
-          style={[styles.phoneNumberView]}
-        />
+        <View>
+          <TextInput
+            ref={_ref => {
+              ref.current = _ref;
+            }}
+            placeholderTextColor={placeholderTextColor}
+            selectionColor={selectionColor}
+            editable={false}
+            value={'+91'}
+            secureTextEntry={secureTextEntry}
+            style={[styles.phoneNumberView]}
+          />
+          <Text style={styles.errorText} />
+        </View>
       )}
       <View style={{ flex: 1, }}>
         <TextInput
@@ -83,9 +86,9 @@ export const InputText = ({
           multiline={multiline}
           numberOfLines={numberOfLines}
         />
-        {errorText?.length > 0 && (
+        {errorText?.length > 0 ? (
           <Text style={styles.errorText}>{errorText}</Text>
-        )}
+        ) : <Text style={styles.errorText} />}
         {secureTextEntry && (
           <TouchableOpacity
             style={{ position: 'absolute', right: wp(4), top: hp(2) }}
